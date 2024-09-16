@@ -2,7 +2,6 @@ import at.tarnoczi.model.Word;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import at.tarnoczi.model.Word;
 
 /**
  * Beschreibung des Programms
