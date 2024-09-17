@@ -3,6 +3,7 @@ package at.tarnoczi.view;
 import at.tarnoczi.controller.Controller;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
@@ -45,9 +46,19 @@ public class Panel extends JPanel {
         //Textinput & Buttons - BOTTOM
 
         JPanel bottom = new JPanel();
-        bottom.setLayout(new GridLayout(1,1));
+        bottom.setLayout(new GridLayout(2,1));
+        bottom.setBorder(new EmptyBorder(0,20,20,20));
         this.input = new JTextField();
         bottom.add(input);
+
+        JPanel buttons = new JPanel();
+        buttons.setLayout(new GridLayout(1,2));
+        this.save = new JButton("Save");
+        this.load = new JButton("Load");
+        buttons.add(save);
+        buttons.add(load);
+        bottom.add(buttons);
+
         this.add(bottom, BorderLayout.PAGE_END);
 
 
