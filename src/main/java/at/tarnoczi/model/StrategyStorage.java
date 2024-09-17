@@ -1,7 +1,7 @@
 package at.tarnoczi.model;
 
 /**
- * Interface für Strategy-Pattern
+ * interface, so other file-formats will also be supported and easily be changed
  * @author Raphael Tarnoczi
  * @version 2024-09-16
  */

@@ -21,8 +21,14 @@ public class Panel extends JPanel {
     private JButton save, load;
     private JTextField input;
     private String url;
-    public Panel(Controller c) throws IOException {
-        this.setLayout(new BorderLayout());
+
+    /**
+     * constructor
+     * @param c the controller for events
+     * @throws MalformedURLException is thrown if the url is invalid
+     */
+    public Panel(Controller c) throws MalformedURLException {
+        this.setLayout(new BorderLayout()); //setting general layout
         this.c = c;
         this.url = c.getUrl();
 
@@ -44,14 +50,17 @@ public class Panel extends JPanel {
         center.add(picture);
         this.add(center, BorderLayout.CENTER);
 
-        //Textinput & Buttons - BOTTOM
-
+        //Textinput,Buttons & Stats - BOTTOM
+        //General
         JPanel bottom = new JPanel();
         bottom.setLayout(new GridLayout(3,1));
         bottom.setBorder(new EmptyBorder(0,20,20,20));
+
+        //Textinput
         this.input = new JTextField();
         bottom.add(input);
 
+        //Buttons
         JPanel buttons = new JPanel();
         buttons.setLayout(new GridLayout(1,2));
         this.save = new JButton("Save");
@@ -86,10 +95,18 @@ public class Panel extends JPanel {
         this.load.setActionCommand("load");
     }
 
+    /**
+     * method which returns the value of the textinput
+     * @return the string value of the input
+     */
     public String getInput() {
         return this.input.getText();
     }
 
+    /**
+     * method which makes sure the next word is displayed correctly and all the other stats are changed as well
+     * @param url the url of the image of the next word
+     */
     public void nextWord(String url) {
         this.input.setText(""); //Textfeld leeren
         this.correct.setText(String.valueOf(this.c.getCorrect())); //stats anpassen
@@ -102,6 +119,10 @@ public class Panel extends JPanel {
         }
     }
 
+    /**
+     * methods which reloads the picture of the next word
+     * @throws MalformedURLException is thrown if the url is invalid
+     */
     private void reloadImage() throws MalformedURLException {
         JPanel center = new JPanel();
         ImageIcon icon = new ImageIcon(new URL(this.url));

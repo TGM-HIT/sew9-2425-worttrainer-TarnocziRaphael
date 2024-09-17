@@ -3,11 +3,16 @@ package at.tarnoczi.view;
 import javax.swing.*;
 
 /**
- * Frame-Klasse
+ * frame-class
  * @author Raphael Tarnoczi
  * @version 2024-09-16
  */
 public class Frame extends JFrame {
+
+    /**
+     * constructor
+     * @param p the panel which is displayed
+     */
     public Frame(JPanel p) {
         super("WordTrainer Raphael Tarnoczi 5AHIT");
         this.add(p);

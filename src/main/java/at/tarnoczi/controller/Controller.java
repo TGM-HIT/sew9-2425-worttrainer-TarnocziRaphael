@@ -9,8 +9,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 /**
- * Beschreibung des Programms
- *
+ * Controller-Class, that represents the connection between view and model
  * @author Raphael Tarnoczi
  * @version 2024-09-16
  */
@@ -18,16 +17,32 @@ public class Controller implements ActionListener {
     private final Frame f;
     private Panel p;
     private WordTrainer trainer;
-    public Controller() throws IOException {
+
+    /**
+     * Constructor
+     */
+    public Controller(){
         this.trainer = new WordTrainer();
-        this.p = new Panel(this);
+        try {
+            this.p = new Panel(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         this.f = new Frame(this.p);
     }
 
-    public static void main(String[] args) throws IOException {
+    /**
+     * main-method, which is executed when running the program
+     * @param args possible parameters
+     */
+    public static void main(String[] args) {
         new Controller();
     }
 
+    /**
+     * method, which is called when an event in the view is triggered (for example save or load)
+     * @param e the event to be processed
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         String actionCommand = e.getActionCommand();
@@ -52,13 +67,26 @@ public class Controller implements ActionListener {
         }
     }
 
+    /**
+     * method returns the url of the current word
+     * @return the url of the current wordf
+     */
     public String getUrl() {
         return trainer.getCurrentWord().getUrl();
     }
 
+    /**
+     * method returns the number of correct guessed words
+     * @return the number
+     */
     public int getCorrect() {
         return this.trainer.getCorrect();
     }
+
+    /**
+     * method returns the number the total guessed words
+     * @return the number
+     */
     public int getTotal() {
         return this.trainer.getTotal();
     }

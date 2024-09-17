@@ -5,22 +5,25 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
 /**
- * Klasse, die es ermöglicht, den WortTrainer aus JSON zu laden und zu speichern
+ * class, which makes it possible that the wordtrainer can be loaded from files in json-format
  * @author Raphael Tarnoczi
  * @version 2024-09-16
  */
 public class JSONStorage implements StrategyStorage{
     /**
-     *
+     * constructor
      */
     public JSONStorage() {}
 
+    /**
+     * method which loads the data from json-files
+     * @param wordTrainer the wordtrainer in, which the data will be put
+     */
     @Override
     public void load(WordTrainer wordTrainer) {
         try {
@@ -62,6 +65,10 @@ public class JSONStorage implements StrategyStorage{
         }
     }
 
+    /**
+     * method which stores the data into a json-file
+     * @param wordTrainer the wordtrainer, which datat will be stored
+     */
     @Override
     public void store(WordTrainer wordTrainer) {
         try {
@@ -90,9 +97,5 @@ public class JSONStorage implements StrategyStorage{
             e.printStackTrace();
         }
 
-    }
-
-    public static void main(String[] args) {
-        new WordTrainer();
     }
 }
