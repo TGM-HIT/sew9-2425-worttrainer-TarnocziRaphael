@@ -62,6 +62,7 @@ public class WordTrainer {
     }
     public void load() {
         this.storage.load(this);
+        changeCurrentIndex();
     }
 
     public Word getCurrentWord() {
@@ -70,5 +71,13 @@ public class WordTrainer {
 
     public boolean check(String input) {
         return input.toLowerCase().equals(getCurrentWord().getWord().toLowerCase());
+    }
+
+    public void changeCurrentIndex() {
+        int random;
+        do {
+            random = new Random().nextInt(words.size());
+        } while (random == currentIndex);
+        currentIndex = random;
     }
 }
