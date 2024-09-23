@@ -15,9 +15,9 @@ public class StorageTest {
     @Test
     void test1() {
         WordTrainer wordTrainer = new WordTrainer();
-        assertEquals(20, wordTrainer.getTotal());
+        assertEquals(14, wordTrainer.getTotal());
         assertEquals(7, wordTrainer.getWords().size());
-        assertEquals(5, wordTrainer.getCorrect());
+        assertEquals(7, wordTrainer.getCorrect());
         assertEquals("Auto", wordTrainer.getWords().get(0).getWord());
     }
 
@@ -25,9 +25,9 @@ public class StorageTest {
     @Test
     void test2() {
         WordTrainer wordTrainer = new WordTrainer();
-        wordTrainer.setTotal(5);
+        wordTrainer.setTotal(14);
         wordTrainer.store();
         wordTrainer.load();
-        assertEquals(5, wordTrainer.getTotal());
+        assertEquals(14, wordTrainer.getTotal());
     }
 }
