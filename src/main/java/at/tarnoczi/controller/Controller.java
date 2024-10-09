@@ -54,6 +54,7 @@ public class Controller implements ActionListener {
                     this.p.nextWord(this.trainer.getCurrentWord().getUrl());
                 }
                 trainer.setTotal(getTotal()+1);
+                this.p.reloadStats();
                 break;
             case "save":
                 this.trainer.store();
