@@ -109,14 +109,18 @@ public class Panel extends JPanel {
      */
     public void nextWord(String url) {
         this.input.setText(""); //Textfeld leeren
-        this.correct.setText(String.valueOf(this.c.getCorrect())); //stats anpassen
-        this.total.setText(String.valueOf(this.c.getTotal()));
+        reloadStats();
         this.url = url;
         try {
             reloadImage();
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void reloadStats() {
+        this.correct.setText(String.valueOf(this.c.getCorrect()));
+        this.total.setText(String.valueOf(this.c.getTotal()));
     }
 
     /**
