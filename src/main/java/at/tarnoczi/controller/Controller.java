@@ -50,10 +50,10 @@ public class Controller implements ActionListener {
             case "input":
                 if (this.trainer.check(this.p.getInput())) {
                     trainer.setCorrect(getCorrect()+1);
+                    this.trainer.changeCurrentIndex();
+                    this.p.nextWord(this.trainer.getCurrentWord().getUrl());
                 }
                 trainer.setTotal(getTotal()+1);
-                this.trainer.changeCurrentIndex();
-                this.p.nextWord(this.trainer.getCurrentWord().getUrl());
                 break;
             case "save":
                 this.trainer.store();
